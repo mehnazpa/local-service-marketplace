@@ -1,0 +1,11 @@
+<svg width="230" height="64" viewBox="0 0 230 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(2 5)">
+    <path d="M28 3 8 19v23c0 6 5 11 11 11h18c6 0 11-5 11-11V19L28 3Z" fill="#198A38"/>
+    <path d="M16 28c4-5 8-8 12-8s8 3 12 8" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <path d="M28 20v17" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <path d="m4 20 7-7 7 6" stroke="#198A38" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m45 18 7-6 7 7" stroke="#198A38" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="67" y="29" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#064D2D">NearHand</text>
+  <text x="68" y="49" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#444">Your Service, Near You</text>
+</svg>
