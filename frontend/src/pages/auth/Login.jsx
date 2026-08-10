@@ -32,22 +32,53 @@ export default function Login() {
     });
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    // FRONTEND ONLY FOR NOW
-    console.log("Login data:", {
-      ...formData,
-      role,
+  try {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+        role: role,
+      }),
     });
 
-    // Temporary navigation for frontend testing
-    if (role === "customer") {
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.message || "Login failed");
+      return;
+    }
+
+    // Save JWT token
+    localStorage.setItem("token", data.token);
+
+    // Save logged-in user information
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    alert("Login successful!");
+
+    // Navigate according to role
+    if (data.user.role === "customer") {
       navigate("/customer/dashboard");
     } else {
       navigate("/provider/dashboard");
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+
+    alert(
+      "Unable to connect to the server. Please make sure the backend is running."
+    );
+  }
+};
 
   return (
     <div className="auth-page">

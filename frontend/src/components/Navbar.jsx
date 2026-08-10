@@ -40,12 +40,7 @@ function Navbar() {
           <ChevronDown size={17} />
         </button>
 
-      <button
-  className="get-started-btn"
-  onClick={() => navigate("/login")}
->
-  Get Started
-</button>
+  
       </div>
     </header>
   );
