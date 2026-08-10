@@ -17,9 +17,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
+// Routes
 const providerRoutes = require("./routes/providerRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 app.use("/api/providers", providerRoutes);
+app.use("/api/auth", authRoutes);
 
 // Basic test route
 app.get("/", (req, res) => {
