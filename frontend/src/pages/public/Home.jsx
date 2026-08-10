@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   Zap,
@@ -127,6 +128,8 @@ const stats = [
 ];
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="nearhand-home">
       <Navbar />
@@ -152,10 +155,13 @@ function Home() {
             and personal needs.
           </p>
 
-          <a href="/login" className="hero-button">
-            Get Started
-            <ArrowRight size={21} />
-          </a>
+         <button
+  className="hero-button"
+  onClick={() => navigate("/login")}
+>
+  Get Started
+  <ArrowRight size={21} />
+</button>
         </div>
       </section>
 
