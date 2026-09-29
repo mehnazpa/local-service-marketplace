@@ -3,6 +3,7 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
+const User = require("./models/User");
 
 dotenv.config();
 
@@ -31,6 +32,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
+app.post("/signup", async(req,res) => {
+    try{
+        const user = new User(req.body);
+        await user.save();
+        res.send("user saved successfully!!");
+    }catch(err){
+        res.status(404).send("User Failed...");
+    }
+    
+})
 // Routes
 const providerRoutes = require("./routes/providerRoutes");
 const authRoutes = require("./routes/authRoutes");
